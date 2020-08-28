@@ -32,11 +32,8 @@ const objectToList = obj => {
 
 
 const extractPropIndexKeyOrValue = key => {
-
-  const rx = /^([a-zA-Z]+)([0-9]+)_([a-zA-Z]+)$/;
-
   let result;
-  if (result = rx.exec(key)) {
+  if (result = key.match(/^([a-zA-Z]+)([0-9]+)_([a-zA-Z]+)$/)) {
     return {
       arrName: result[1],
       index: result[2],
@@ -44,6 +41,7 @@ const extractPropIndexKeyOrValue = key => {
     }
   }
 }
+
 
 const isStringDate = str => new Date( parseInt(str.slice(2)) ).getTime() > 0;
 
