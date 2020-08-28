@@ -32,8 +32,8 @@ const objectToList = obj => {
 
 
 const extractPropIndexKeyOrValue = key => {
-  let result;
-  if (result = key.match(/^([a-zA-Z]+)([0-9]+)_([a-zA-Z]+)$/)) {
+  const result = key.match(/^([a-zA-Z]+)([0-9]+)_([a-zA-Z]+)$/);
+  if (result) {
     return {
       arrName: result[1],
       index: result[2],
