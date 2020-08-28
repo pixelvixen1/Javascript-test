@@ -31,24 +31,18 @@ const objectToList = obj => {
 }
 
 
-
 const extractPropIndexKeyOrValue = key => {
 
-  const id = key.match(/\d+/g);
+  const rx = /^([a-zA-Z]+)([0-9]+)_([a-zA-Z]+)$/;
 
-  if(id){
-    const index = parseInt(id[0]);
-    const arrName = key.slice(0,key.indexOf(index));
-    const prop = key.slice(key.indexOf(index)+2);
-   
-    return{
-      arrName,
-      index, 
-      prop
+  let result;
+  if (result = rx.exec(key)) {
+    return {
+      arrName: result[1],
+      index: result[2],
+      prop: result[3]
     }
-
   }
-
 }
 
 const isStringDate = str => new Date( parseInt(str.slice(2)) ).getTime() > 0;
