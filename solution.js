@@ -95,7 +95,6 @@ const deserialize = obj => {
 
 
 module.exports = {
-  deepClone,
   add,
   listToObject,
   deserialize,
